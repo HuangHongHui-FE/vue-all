@@ -1,14 +1,17 @@
 <template>
   <div class="home">
-    <router-link to="/">Home</router-link>
-    <router-link to="/iframe">Iframe</router-link>
+    Online Index
   </div>
 </template>
 
 <script>
 export default {
-  name: "HomeView",
+  name: "Index",
   components: {
+
   },
 };
 </script>
+
+
+
