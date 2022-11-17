@@ -3,7 +3,7 @@
 <!-- 国际化配置 -->
   <a-config-provider :locale="en_US">
     <div id="app">
-      <a-button type="primary">按钮 Button</a-button>
+      <!-- <a-button type="primary">按钮 Button</a-button> -->
       <router-view />
     </div>
   </a-config-provider>
