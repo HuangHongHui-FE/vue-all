@@ -37,6 +37,7 @@ if (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobil
 }
 
 const router = new VueRouter({
+  linkActiveClass: 'active',
   routes
 })
 

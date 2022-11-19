@@ -6,12 +6,8 @@
         <div>HHH的demos</div>
       </div>
       <div class="head_middle">
-        <router-link to="/" class="link" active-class="active"
-          >演示</router-link
-        >
-        <router-link to="/a" class="link" active-class="active"
-          >关于</router-link
-        >
+        <router-link to="/" class="link">演示</router-link>
+        <router-link to="/a" class="link">关于</router-link>
         <nav>星座物语<i class="iconfont icon-fenxiang"></i></nav>
         <nav>funguy<i class="iconfont icon-fenxiang"></i></nav>
         <nav>交友<i class="iconfont icon-fenxiang"></i></nav>
@@ -25,7 +21,7 @@
           <i class="iconfont icon-taiyang"></i>
         </div>
         <div class="head_right_input">
-          <a-input placeholder="Search" class="a_input">
+          <a-input placeholder="Search">
             <i slot="prefix" class="iconfont icon-sousuo"></i>
             <a-tooltip slot="suffix" title="Ender ctrl+K to Search">
               <i class="iconfont icon-enterinto"></i>
@@ -144,17 +140,14 @@ export default {
         > i {
           font-size: 26px;
         }
-        .a_input {
-          // height: 100%;
-          // padding: 2vh 0;
+        &:hover {
+          color: rgb(63, 208, 249);
         }
       }
       div:nth-last-child(1) {
         flex: 3;
       }
       &_input {
-        // height: 5vh;
-        border-radius: 3vh;
       }
     }
   }
@@ -193,5 +186,17 @@ export default {
       transform: rotate(360deg);
     }
   }
+}
+
+// 更改antd的默认样式
+:global(.ant-input) {
+  background-color: rgb(221, 224, 228) !important;
+  height: 36px !important;
+  border-radius: 10px !important;
+  font-weight: 700;
+}
+:global(.ant-input:hover) {
+  border: 3px solid rgb(63, 208, 249) !important;
+  background-color: rgb(245, 246, 247) !important;
 }
 </style>>
