@@ -5,20 +5,24 @@
         <img src="../assets/img/index-head.webp" alt="头像" />
         <div>HHH的demos</div>
       </div>
+
       <div class="head_middle">
         <router-link to="/" class="link">演示</router-link>
         <router-link to="/a" class="link">关于</router-link>
-        <nav>星座物语<i class="iconfont icon-fenxiang"></i></nav>
+        <nav @click="goUrl(vue3_constelation_url, 'out')">
+          星座物语<i class="iconfont icon-fenxiang"></i>
+        </nav>
         <nav>funguy<i class="iconfont icon-fenxiang"></i></nav>
         <nav>交友<i class="iconfont icon-fenxiang"></i></nav>
         <nav>讨论<i class="iconfont icon-fenxiang"></i></nav>
       </div>
+
       <div class="head_right">
-        <div>
+        <div @click="goUrl(gitee_url, 'out')">
           <i class="iconfont icon-gitee"></i>
         </div>
-        <div>
-          <i class="iconfont icon-taiyang"></i>
+        <div @click="changeTheme">
+          <i :class="[thmem_icon]"></i>
         </div>
         <div class="head_right_input">
           <a-input placeholder="Search">
@@ -46,9 +50,57 @@
 </template>
 
 <script>
+import { setTheme } from "../theme/theme";
+import {
+  gitee_url,
+  vue3_constelation_url,
+  vue3_visual_url,
+  node_all_url,
+  react_all_url,
+  vue_all_url,
+} from "../config/url";
 export default {
   name: "HomeView",
   components: {},
+  data() {
+    return {
+      theme: "default",
+      thmem_icon: "iconfont icon-taiyang",
+      gitee_url: gitee_url,
+    };
+  },
+  created() {
+    // console.log(this.gitee_url);
+  },
+  mounted() {
+    // this.init(); // 初始化主题
+  },
+  methods: {
+    // init() {
+    //   setTheme(this.theme);
+    // },
+    changeTheme() {
+      if (this.theme === "default") {
+        this.theme = "dark";
+        this.thmem_icon = "iconfont icon-icon_yejianqingtian";
+        this.theme = "dark";
+        setTheme("dark");
+      } else {
+        this.theme = "default";
+        this.thmem_icon = "iconfont icon-taiyang";
+        setTheme("default");
+      }
+    },
+
+    // 跳转路由， 第二各参数'out'为外部网站
+    goUrl(url, where) {
+      if (where === "out") {
+        window.open(url, "_blank");
+      } else {
+        // this.router
+      }
+    },
+  },
 };
 </script>
 
@@ -62,13 +114,13 @@ export default {
   .head {
     padding: 0 4vw;
     font-size: 17px;
-    color: rgb(245, 246, 247);
-    background-color: rgb(32, 35, 42);
+    color: @primaryWhite1;
+    background-color: @primaryBlack1;
     display: flex;
     height: 8vh;
     &_left {
       &:hover {
-        color: rgb(63, 208, 249);
+        color: @primaryBlue1;
         img {
           animation: imgCyc 600ms ease;
           animation-fill-mode: forwards;
@@ -99,16 +151,16 @@ export default {
 
       // active路由
       .active {
-        color: rgb(63, 208, 249);
+        color: @primaryBlue1;
         &::after {
-          background-color: rgb(63, 208, 249);
+          background-color: @primaryBlue1;
         }
       }
       > a {
         &:hover {
-          color: rgb(63, 208, 249);
+          color: @primaryBlue1;
         }
-        color: rgb(245, 246, 247);
+        color: @primaryWhite1;
         cursor: pointer;
         position: relative;
         &::after {
@@ -124,9 +176,9 @@ export default {
       }
       > nav {
         cursor: pointer;
-        color: rgb(245, 246, 247);
+        color: @primaryWhite1;
         &:hover {
-          color: rgb(63, 208, 249);
+          color: @primaryBlue1;
         }
       }
     }
@@ -141,7 +193,7 @@ export default {
           font-size: 26px;
         }
         &:hover {
-          color: rgb(63, 208, 249);
+          color: @primaryBlue1;
         }
       }
       div:nth-last-child(1) {
@@ -190,13 +242,13 @@ export default {
 
 // 更改antd的默认样式
 :global(.ant-input) {
-  background-color: rgb(221, 224, 228) !important;
+  background-color: @white2 !important;
   height: 36px !important;
   border-radius: 10px !important;
   font-weight: 700;
 }
 :global(.ant-input:hover) {
-  border: 3px solid rgb(63, 208, 249) !important;
-  background-color: rgb(245, 246, 247) !important;
+  border: 3px solid @primaryBlue1 !important;
+  background-color: @primaryWhite1 !important;
 }
 </style>>

@@ -1,0 +1,26 @@
+// 默认的颜色，统一颜色，这里定义的都是不改变的
+@primaryBlue1: var(--primaryBlue1, rgb(63, 208, 249));
+@primaryWhite1: var(--primaryWhite1, rgb(245, 246, 247));
+@primaryWhite2: var(--primaryWhite1, rgb(221, 224, 228));
+@primaryBlack1: var(--primaryBlack1, rgb(32, 35, 42));
+@primaryBalck2: var(--primaryBalck2, rgb(78,79,82));
+
+@white1: var(--white1, #f5f6e3);
+@white2: var(--white2, #dde0e4);
+@black1: var(--black1, #20232a);
+@black2: var(--black2, #4e4f52);
+// 导出变量
+:export {
+  name: "less";
+  primaryBlue1: @primaryBlue1;
+  primaryWhite1: @primaryWhite1;
+  primaryWhite2: @primaryWhite2;
+  primaryBlack1: @primaryBlack1;
+  primaryBalck2: @primaryBalck2;
+
+
+  white1: @white1;
+  white2: @white2;
+  black1: @black1;
+  black2: @black2;
+}
