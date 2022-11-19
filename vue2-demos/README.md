@@ -1,5 +1,7 @@
 # vue2-demos
 
+vue2+and-design+less
+
 ### 目录结构
 
 ```
@@ -7,7 +9,16 @@ VUE-all
 	vue2-demo
 		public
 		src
-			
+			assets
+			components
+			config
+				antd_design_vue				// antd design组件的按需引入
+			store
+			views
+			App.vue
+			main.js
+		babel.config.js
+		README.md
 	
 	README.md
 ```
@@ -15,10 +26,6 @@ VUE-all
 
 
 ##### ant-design的使用
-
-
-
-
 
 ### 2022-11 --- 两套路由配置
 
@@ -34,4 +41,8 @@ router
 ### 2022-11 --- 首页
 
 仿react-native中文网，https://reactnative.cn/docs/getting-started
+
+#### 动画animation
+
+https://www.jianshu.com/p/b7a9349d2630
 

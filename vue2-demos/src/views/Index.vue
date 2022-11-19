@@ -2,23 +2,49 @@
   <div class="Index">
     <header class="head">
       <div class="head_left">
-        <img src="../assets/img/index-head.webp" alt="头像">
-        <p>追风筝的人的demos</p>
+        <img src="../assets/img/index-head.webp" alt="头像" />
+        <div>HHH的demos</div>
       </div>
-      <div></div>
+      <div class="head_middle">
+        <router-link to="/" class="link" active-class="active"
+          >演示</router-link
+        >
+        <router-link to="/a" class="link" active-class="active"
+          >关于</router-link
+        >
+        <nav>星座物语<i class="iconfont icon-fenxiang"></i></nav>
+        <nav>funguy<i class="iconfont icon-fenxiang"></i></nav>
+        <nav>交友<i class="iconfont icon-fenxiang"></i></nav>
+        <nav>讨论<i class="iconfont icon-fenxiang"></i></nav>
+      </div>
+      <div class="head_right">
+        <div>
+          <i class="iconfont icon-gitee"></i>
+        </div>
+        <div>
+          <i class="iconfont icon-taiyang"></i>
+        </div>
+        <div class="head_right_input">
+          <a-input placeholder="Search" class="a_input">
+            <i slot="prefix" class="iconfont icon-sousuo"></i>
+            <a-tooltip slot="suffix" title="Ender ctrl+K to Search">
+              <i class="iconfont icon-enterinto"></i>
+            </a-tooltip>
+          </a-input>
+        </div>
+      </div>
     </header>
 
     <section class="content">
-      <section>head_left</section>
+      <section class="left">left</section>
       <section class="middle">中间</section>
 
       <section class="right">right</section>
-      <!-- <router-link to="/">Home</router-link>
-      <router-link to="/iframe">Iframe</router-link> -->
+      <!-- <router-link to="/iframe">Iframe</router-link> -->
     </section>
 
     <footer class="footer">
-      <div>底部</div>
+      <div>HHH的demos</div>
     </footer>
   </div>
 </template>
@@ -34,18 +60,109 @@ export default {
 
 <style scoped lang="less">
 .Index {
+  // background-color: @hhh;
   display: flex;
   flex-direction: column;
   .head {
+    padding: 0 4vw;
+    font-size: 17px;
+    color: rgb(245, 246, 247);
     background-color: rgb(32, 35, 42);
     display: flex;
-    height: 80px;
+    height: 8vh;
+    &_left {
+      &:hover {
+        color: rgb(63, 208, 249);
+        img {
+          animation: imgCyc 600ms ease;
+          animation-fill-mode: forwards;
+        }
+      }
+      line-height: 8vh;
+      cursor: pointer;
+      flex: 2;
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      img {
+        width: 6vh;
+        height: 6vh;
+        border-radius: 50%;
+      }
+      div {
+        padding-left: 1vh;
+        line-height: 6vh;
+      }
+    }
+    &_middle {
+      flex: 5;
+      display: flex;
+      justify-content: space-around;
+      line-height: 8vh;
+
+      // active路由
+      .active {
+        color: rgb(63, 208, 249);
+        &::after {
+          background-color: rgb(63, 208, 249);
+        }
+      }
+      > a {
+        &:hover {
+          color: rgb(63, 208, 249);
+        }
+        color: rgb(245, 246, 247);
+        cursor: pointer;
+        position: relative;
+        &::after {
+          position: absolute;
+          text-align: center;
+          bottom: 0;
+          left: 50%;
+          content: "";
+          transform: translateX(-50%);
+          width: 70px;
+          height: 4px;
+        }
+      }
+      > nav {
+        cursor: pointer;
+        color: rgb(245, 246, 247);
+        &:hover {
+          color: rgb(63, 208, 249);
+        }
+      }
+    }
+    &_right {
+      flex: 2;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      div {
+        flex: 1;
+        > i {
+          font-size: 26px;
+        }
+        .a_input {
+          // height: 100%;
+          // padding: 2vh 0;
+        }
+      }
+      div:nth-last-child(1) {
+        flex: 3;
+      }
+      &_input {
+        // height: 5vh;
+        border-radius: 3vh;
+      }
+    }
   }
 
   .content {
-    background-color: aquamarine;
+    padding: 0 4vw;
     display: flex;
-
+    height: 92vh;
     .left {
       background-color: azure;
       flex: 2;
@@ -63,7 +180,18 @@ export default {
   }
 
   .footer {
+    padding: 0 4vw;
+
     background-color: rgb(225, 141, 39);
+  }
+
+  @keyframes imgCyc {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 }
 </style>>

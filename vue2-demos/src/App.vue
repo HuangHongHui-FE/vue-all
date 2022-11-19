@@ -11,6 +11,7 @@
 
 <style lang="less">
 #app {
+  @hhh: red;
 }
 </style>
 
