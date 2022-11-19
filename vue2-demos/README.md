@@ -23,9 +23,11 @@ VUE-all
 	README.md
 ```
 
+##### ant-design-vue1.多对应vue2版本;
 
+UI文档：https://1x.antdv.com/components/button-cn/
 
-##### ant-design的使用
+##### ant-design的使用：
 
 ### 2022-11 --- 两套路由配置
 
