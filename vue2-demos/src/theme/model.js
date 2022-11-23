@@ -1,7 +1,7 @@
 // 一套默认主题以及一套暗黑主题
 export const themes = {
   default: {
-    white1: `#f5f6e3`,
+    white1: `#ffffff`,
     white2: `#dde0e4`,
     black1: `#20232a`,
     black2: `#4e4f52`
@@ -9,7 +9,7 @@ export const themes = {
   dark: {
     white1: `#20232a`,
     white2: `#4e4f52`,
-    black1: `#f5f6e3`,
+    black1: `#ffffff`,
     black2: `#dde0e4`
   },
   // default: {

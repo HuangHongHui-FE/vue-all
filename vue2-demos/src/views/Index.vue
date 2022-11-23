@@ -6,19 +6,21 @@
         <div>HHH的demos</div>
       </div>
 
-      <div class="head_middle">
+      <div class="head_middle" @click="goUrl()">
         <router-link to="/" class="link">演示</router-link>
         <router-link to="/a" class="link">关于</router-link>
-        <nav @click="goUrl(vue3_constelation_url, 'out')">
-          星座物语<i class="iconfont icon-fenxiang"></i>
+        <!-- 项目链接 -->
+        <nav
+          v-for="(item, index) in pageData.urls"
+          :key="index"
+          :data-url="item.url"
+        >
+          {{ item.name }}<i class="iconfont icon-fenxiang"></i>
         </nav>
-        <nav>funguy<i class="iconfont icon-fenxiang"></i></nav>
-        <nav>交友<i class="iconfont icon-fenxiang"></i></nav>
-        <nav>讨论<i class="iconfont icon-fenxiang"></i></nav>
       </div>
 
       <div class="head_right">
-        <div @click="goUrl(gitee_url, 'out')">
+        <div @click="goUrl(pageData.gitee_url)">
           <i class="iconfont icon-gitee"></i>
         </div>
         <div @click="changeTheme">
@@ -36,8 +38,27 @@
     </header>
 
     <section class="content">
-      <section class="left">left</section>
-      <section class="middle">中间</section>
+      <section class="left">
+        <!-- <LeftAside :data="" /> -->
+
+        <a-menu
+          :default-selected-keys="['1']"
+          :open-keys.sync="openKeys"
+          mode="inline"
+          @click="handleClick"
+        >
+          <a-sub-menu v-for="item in pageData.left_data" :key="item.pid">
+            <span slot="title">{{ item.title }}</span>
+            <a-menu-item v-for="demo in item.demos" :key="demo.id">
+              <router-link to="test2">{{ demo.name }}</router-link>
+            </a-menu-item>
+          </a-sub-menu>
+        </a-menu>
+      </section>
+
+      <section class="middle">
+        <router-view></router-view>
+      </section>
 
       <section class="right">right</section>
       <!-- <router-link to="/iframe">Iframe</router-link> -->
@@ -51,34 +72,92 @@
 
 <script>
 import { setTheme } from "../theme/theme";
-import {
-  gitee_url,
-  vue3_constelation_url,
-  vue3_visual_url,
-  node_all_url,
-  react_all_url,
-  vue_all_url,
-} from "../config/url";
+import { head_mid_urls, gitee_url } from "../config/url";
+// import LeftAside from "../components/Online/LeftAside";
+
 export default {
   name: "HomeView",
-  components: {},
+  components: {
+    // LeftAside,
+  },
   data() {
+    this.pageData = {
+      urls: head_mid_urls,
+      gitee_url,
+      left_data: [
+        {
+          title: "2022-11",
+          pid: "1",
+          demos: [
+            {
+              id: "1",
+              path: "test2",
+              name: "跳转",
+            },
+            {
+              id: "2",
+              path: "test",
+              name: "跳转",
+            },
+            {
+              id: "3",
+              path: "test2",
+              name: "跳转",
+            },
+            {
+              id: "4",
+              path: "test",
+              name: "跳转",
+            },
+          ],
+        },
+        {
+          title: "2022-10",
+          pid: "2",
+          demos: [
+            {
+              id: "1",
+              path: "test2",
+              name: "跳转",
+            },
+            {
+              id: "2",
+              path: "test",
+              name: "跳转",
+            },
+            {
+              id: "3",
+              path: "test2",
+              name: "跳转",
+            },
+            {
+              id: "4",
+              path: "test",
+              name: "跳转",
+            },
+          ],
+        },
+      ],
+    };
     return {
       theme: "default",
       thmem_icon: "iconfont icon-taiyang",
-      gitee_url: gitee_url,
+      openKeys: ["1"],
+      current: ["mail"],
     };
   },
-  created() {
-    // console.log(this.gitee_url);
-  },
   mounted() {
-    // this.init(); // 初始化主题
+    this.init(); // 初始化主题
+  },
+  watch: {
+    openKeys(val) {
+      console.log("openKeys", val);
+    },
   },
   methods: {
-    // init() {
-    //   setTheme(this.theme);
-    // },
+    init() {
+      setTheme(this.theme);
+    },
     changeTheme() {
       if (this.theme === "default") {
         this.theme = "dark";
@@ -93,12 +172,19 @@ export default {
     },
 
     // 跳转路由， 第二各参数'out'为外部网站
-    goUrl(url, where) {
-      if (where === "out") {
-        window.open(url, "_blank");
+    goUrl(path) {
+      if (path) {
+        window.open(path, "_blank");
       } else {
-        // this.router
+        const url = event.target?.dataset?.url;
+        if (url) {
+          window.open(url, "_blank");
+        }
       }
+    },
+
+    handleClick(e) {
+      console.log("click", e);
     },
   },
 };
@@ -207,14 +293,15 @@ export default {
   .content {
     padding: 0 4vw;
     display: flex;
-    height: 92vh;
+    min-height: 92vh;
+    background-color: @white1;
     .left {
-      background-color: azure;
       flex: 2;
+      padding-right: 1vw;
     }
 
     .middle {
-      background-color: yellow;
+      // background-color: yellow;
       flex: 5;
     }
 
@@ -250,5 +337,53 @@ export default {
 :global(.ant-input:hover) {
   border: 3px solid @primaryBlue1 !important;
   background-color: @primaryWhite1 !important;
+}
+:global(.ant-menu) {
+  border: 0 !important;
+  padding-right: 2vw !important;
+  background-color: @white1 !important;
+}
+:global(.ant-menu-submenu-title span) {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+:global(.ant-menu-submenu-title) {
+  height: 4vh !important;
+  line-height: 4vh !important;
+  color: @black2 !important;
+}
+
+:global(.ant-menu-item) {
+  height: 4vh !important;
+  line-height: 4vh !important;
+  border-radius: 1vw;
+  left: 1vw;
+}
+
+:global(.ant-menu-item a) {
+    color: @black2 !important;
+
+}
+:global(.ant-menu-item:not(:last-child)) {
+  margin-bottom: 1px !important;
+}
+:global(.ant-menu-item:hover) {
+  background-color: @white2 !important;
+}
+:global(.ant-menu-item-selected) {
+  background-color: @white2 !important;
+}
+:global(.ant-menu-item-selected::before) {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  border: 4px solid @primaryBlue1;
+  content: "";
+}
+:global(.ant-menu-item-selected::after) {
+  position: absolute;
+  border: 0 !important;
 }
 </style>>
