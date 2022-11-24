@@ -5,7 +5,6 @@
         :default-selected-keys="['1-1']"
         :open-keys.sync="openKeys"
         mode="inline"
-        @click="handleClick"
       >
         <a-sub-menu v-for="item in pageData.left_data" :key="item.pid">
           <span slot="title">{{ item.title }}</span>
@@ -36,13 +35,13 @@ export default {
       gitee_url,
       left_data: [
         {
-          title: "2022-10",
+          title: "组件封装",
           pid: "1",
           demos: [
             {
               id: "1-1",
-              path: "test2",
-              name: "跳转",
+              path: "dialog",
+              name: "diolog组件",
             },
             {
               id: "1-2",
@@ -192,6 +191,8 @@ export default {
   .middle {
     // background-color: yellow;
     flex: 6;
+    padding: 30px;
+
   }
 
   .right {
