@@ -13,7 +13,10 @@ VUE-all
 			components
 			config
 				antd_design_vue				// antd design组件的按需引入
-			store
+				url							// 首页用到的外部URL
+			libs							// 封装UI组件
+			router							// 路由配置
+			store							// Vuex状态管理
 			views
 			App.vue
 			main.js
