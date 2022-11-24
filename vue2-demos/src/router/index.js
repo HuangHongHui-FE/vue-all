@@ -4,6 +4,7 @@ import Index from '../views/Index.vue'
 import Yanshi from '../views/Online/Yanshi/index.vue'
 import Test from '../views/Online/Yanshi/Erer-ten/test.vue'
 import DialogIndex from '../views/Online/Yanshi/Erer-ten/DialogIndex.vue'
+import FiveStarsUI from '../views/Online/Yanshi/Erer-ten/FiveStarsUI'
 Vue.use(VueRouter)
 
 // 配置两套路由online与h5
@@ -47,6 +48,11 @@ const routes_online = [
             path: '/yanshi/erer-ten/test',
             name: 'test',
             component: Test
+          },
+          {
+            path: '/yanshi/erer-ten/five-stars',
+            name: 'five-stars',
+            component: FiveStarsUI
           }
         ]
       }

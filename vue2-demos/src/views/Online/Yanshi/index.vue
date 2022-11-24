@@ -45,8 +45,8 @@ export default {
             },
             {
               id: "1-2",
-              path: "test",
-              name: "跳转",
+              path: "five-stars",
+              name: "五星好评-UI",
             },
           ],
         },

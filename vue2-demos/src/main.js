@@ -10,6 +10,10 @@ import '@/assets/css/font.css'
 import antd from './config/antd_design_vue.js';
 // import "ant-design-vue/dist/antd.css";  // 这里不用引入
 
+// UI
+import UI from './libs/UI'
+Vue.use(UI)
+
 
 Vue.use(antd);
 
