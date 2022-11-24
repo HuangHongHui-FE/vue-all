@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../views/Index.vue'
+import Yanshi from '../views/Online/Yanshi/index.vue'
 import Test from '../views/Online/Erer-ten/test.vue'
 import Test2 from '../views/Online/Erer-ten/test2.vue'
 Vue.use(VueRouter)
@@ -27,20 +28,45 @@ const routes_online = [
         name: 'erer-ten',
         redirect: to => {
           return '/yanshi/erer-ten/test'
-        }
+        },
       },
       {
         path: '/yanshi/erer-ten/test',
-        name: 'test',
-        component: Test
-      },
-      {
-        path: '/yanshi/erer-ten/test2',
-        name: 'test2',
-        component: Test2
+        name: 'yan_shi',
+        component: Yanshi,
+        redirect: to => {
+          return '/yanshi/erer-ten/test'
+        },
+        children: [
+          {
+            path: '/yanshi/erer-ten/test',
+            name: 'test',
+            component: Test
+          },
+          {
+            path: '/yanshi/erer-ten/test2',
+            name: 'test2',
+            component: Test2
+          }
+        ]
       }
     ]
   },
+  {
+    path: '/about',
+    name: 'about',
+    component: Index,
+    redirect: to => {
+      return '/about/test'
+    },
+    children: [
+      {
+        path: '/about/test',
+        name: 'about_test',
+        component: Test
+      }
+    ]
+  }
 ]
 
 const routes_h5 = [
@@ -66,4 +92,4 @@ const router = new VueRouter({
   routes
 })
 
-export default router
+export default router;
