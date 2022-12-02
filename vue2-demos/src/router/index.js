@@ -3,8 +3,10 @@ import VueRouter from 'vue-router'
 import Index from '../views/Index.vue'
 import Yanshi from '../views/Online/Yanshi/index.vue'
 import Test from '../views/Online/Yanshi/Erer-ten/test.vue'
-import DialogIndex from '../views/Online/Yanshi/Erer-ten/DialogIndex.vue'
-import FiveStarsUI from '../views/Online/Yanshi/Erer-ten/FiveStarsUI'
+import DialogIndex from '../views/Online/Yanshi/Com/DialogIndex.vue'
+import FiveStarsUI from '../views/Online/Yanshi/Com/FiveStarsUI'
+
+import BigFileBasic from '../views/Online/Yanshi/BigFile/Basic'
 Vue.use(VueRouter)
 
 // 配置两套路由online与h5
@@ -12,64 +14,64 @@ const routes_online = [
   {
     path: '/',
     name: 'Index',
+    component: Index,
     redirect: to => {
       return '/yanshi'
     },
-  },
-  {
-    path: '/yanshi',
-    name: 'yanshi',
-    component: Index,
-    redirect: to => {
-      return '/yanshi/erer-ten'
-    },
     children: [
       {
-        path: '/yanshi/erer-ten',
-        name: 'erer-ten',
-        redirect: to => {
-          return '/yanshi/erer-ten/dialog'
-        },
-      },
-      {
-        path: '/yanshi/erer-ten/dialog',
-        name: 'yan_shi',
+        path: '/yanshi',
+        name: 'yanshi',
         component: Yanshi,
         redirect: to => {
-          return '/yanshi/erer-ten/dialog'
+          return '/yanshi/com'
         },
         children: [
           {
-            path: '/yanshi/erer-ten/dialog',
+            path: '/yanshi/com',
+            name: 'com',
+            redirect: to => {
+              return '/yanshi/com/dialog'
+            },
+          },
+          {
+            path: '/yanshi/com/dialog',
             name: 'dialog',
             component: DialogIndex
           },
           {
-            path: '/yanshi/erer-ten/test',
-            name: 'test',
-            component: Test
-          },
-          {
-            path: '/yanshi/erer-ten/five-stars',
+            path: '/yanshi/com/five-stars',
             name: 'five-stars',
             component: FiveStarsUI
+          },
+          
+          {
+            path: '/yanshi/big-file',
+            name: 'big-file',
+            redirect: to => {
+              return '/yanshi/big-file/basic'
+            },
+          },
+          {
+            path: '/yanshi/big-file/basic',
+            name: 'big-file-basic',
+            component: BigFileBasic
           }
         ]
-      }
-    ]
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: Index,
-    redirect: to => {
-      return '/about/test'
-    },
-    children: [
+      },
       {
-        path: '/about/test',
-        name: 'about_test',
-        component: Test
+        path: '/about',
+        name: 'about',
+        redirect: to => {
+          return '/about/test'
+        },
+        children: [
+          {
+            path: '/about/test',
+            name: 'about_test',
+            component: Test
+          }
+        ]
       }
     ]
   }

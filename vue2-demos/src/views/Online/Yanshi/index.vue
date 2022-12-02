@@ -40,19 +40,30 @@ export default {
           demos: [
             {
               id: "1-1",
-              path: "dialog",
+              path: "../com/dialog",
               name: "diolog组件",
             },
             {
               id: "1-2",
-              path: "five-stars",
+              path: "../com/five-stars",
               name: "五星好评-UI",
             },
           ],
         },
         {
-          title: "2022-11",
+          title: "大文件上传",
           pid: "2",
+          demos: [
+            {
+              id: "2-1",
+              path: "../big-file/basic",
+              name: "大文件上传basic",
+            },
+          ],
+        },
+        {
+          title: "2022-11",
+          pid: "999",
           demos: [
             {
               id: "2-1",
@@ -192,7 +203,6 @@ export default {
     // background-color: yellow;
     flex: 6;
     padding: 30px;
-
   }
 
   .right {
@@ -205,7 +215,7 @@ export default {
   border: 0 !important;
   padding-right: 2vw !important;
   background-color: @white1 !important;
-  width:18vw !important;
+  width: 18vw !important;
 }
 :global(.ant-menu-submenu-title span) {
   font-size: 18px;
