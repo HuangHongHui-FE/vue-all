@@ -4,21 +4,22 @@ import nProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 const requests = axios.create({
-    baseURL: '/vue-all',
+    baseURL: 'http://127.0.0.1:3000/vue-all',
     timeout: 5000,
 });
 
 requests.interceptors.request.use(config => {
+    console.log('config---', config);
     nProgress.start();
     return config
 });
 
 requests.interceptors.response.use((res) => {
     nProgress.done();
-
+    // console.log('res---', res.data);
     return res.data
 }, (error) => {
-    return Promise.reject(new Error('faile'))
+    return Promise.reject(new Error(error))
 })
 
 export default requests;
