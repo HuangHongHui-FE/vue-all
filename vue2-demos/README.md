@@ -122,3 +122,17 @@ data() {
   },
 ```
 
+
+
+### ERROR
+
+##### 跨域情况下的cookie
+
+跨域情况下的set-cookie：
+
+1. 前端设置with-credentials:true，后端即使不设置CORS头也可set-cookie成功
+2. 前端不设置with-credentials或者false，set-cookie响应头会被直接忽略
+
+cors需要设置
+
+https://segmentfault.com/a/1190000011811117

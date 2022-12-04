@@ -7,6 +7,7 @@ import DialogIndex from '../views/Online/Yanshi/Com/DialogIndex.vue'
 import FiveStarsUI from '../views/Online/Yanshi/Com/FiveStarsUI'
 
 import BigFileBasic from '../views/Online/Yanshi/BigFile/Basic'
+import ErerElevenCookie from '../views/Online/Yanshi/Erer-eleven/Cookie'
 Vue.use(VueRouter)
 
 // 配置两套路由online与h5
@@ -56,7 +57,20 @@ const routes_online = [
             path: '/yanshi/big-file/basic',
             name: 'big-file-basic',
             component: BigFileBasic
-          }
+          },
+
+          {
+            path: '/yanshi/erer-eleven',
+            name: 'erer-eleven',
+            redirect: to => {
+              return '/yanshi/erer-eleven/cookie'
+            }
+          },
+          {
+            path: '/yanshi/erer-eleven/cookie',
+            name: 'erer-eleven-cookie',
+            component: ErerElevenCookie
+          },
         ]
       },
       {
