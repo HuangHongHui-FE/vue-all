@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { bigFileUpload, bigFileMerge } from "../../../../api/index";
 export default {
   name: "BigFileBasic",
   components: {},
@@ -24,7 +25,7 @@ export default {
     async uploadFile() {
       // console.log(this.$message);
       if (!this.pageData.file) {
-        this.$message.warning("先选择要上传的文件！");
+        return this.$message.warning("先选择要上传的文件！");
       }
       // 创建切片
       // let size = 1024 * 1024 * 10 //10MB 切片大小
@@ -34,35 +35,24 @@ export default {
       let index = 0;
       const file = this.pageData.file;
       for (let cur = 0; cur < file.size; cur += size) {
-        // console.log(file.slice(cur))
         fileChunks.push({
           hash: index++,
           chunk: file.slice(cur, cur + size),
         });
       }
-      console.log(fileChunks);
+      // console.log(fileChunks);
       // 上传切片
       const uploadList = fileChunks.map((item, index) => {
         const formData = new FormData();
         formData.append("filename", file.name);
         formData.append("hash", item.hash);
         formData.append("chunk", item.chunk);
-        return axios({
-          method: "post",
-          url: "/upload",
-          data: formData,
-        });
+        return bigFileUpload(formData);
       });
-      await Promise.all(uploadList);
+      const uploadRes = await Promise.all(uploadList);
+      console.log(uploadRes);
       // 合并切片
-      const res = await axios({
-        method: "get",
-        url: "/merge",
-        params: {
-          filename: file.name,
-        },
-      });
-      console.log("上传完成");
+      const res = await bigFileMerge(file.name);
       console.log(res.data);
     },
   },
