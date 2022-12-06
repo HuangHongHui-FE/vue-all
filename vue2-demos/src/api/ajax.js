@@ -7,11 +7,11 @@ const requests = axios.create({
     baseURL: 'http://127.0.0.1:3000/vue-all',
     // res.cookie可以自动设置cookie
     withCredentials: true,
-    timeout: 5000
+    timeout: 50000
 });
 
 requests.interceptors.request.use(config => {
-    console.log('config---', config);
+    // console.log('config---', config);
     nProgress.start();
     return config
 });

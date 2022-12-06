@@ -57,8 +57,13 @@ export default {
             {
               id: "2-1",
               path: "../big-file/basic",
-              name: "大文件上传basic",
+              name: "basic",
             },
+            {
+              id: "2-2",
+              path: "../big-file/pool",
+              name: "pool",
+            }
           ],
         },
         {

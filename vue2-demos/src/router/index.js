@@ -7,6 +7,7 @@ import DialogIndex from '../views/Online/Yanshi/Com/DialogIndex.vue'
 import FiveStarsUI from '../views/Online/Yanshi/Com/FiveStarsUI'
 
 import BigFileBasic from '../views/Online/Yanshi/BigFile/Basic'
+import BigFilePool from '../views/Online/Yanshi/BigFile/Pool'
 import ErerElevenCookie from '../views/Online/Yanshi/Erer-eleven/Cookie'
 Vue.use(VueRouter)
 
@@ -57,6 +58,11 @@ const routes_online = [
             path: '/yanshi/big-file/basic',
             name: 'big-file-basic',
             component: BigFileBasic
+          },
+          {
+            path: '/yanshi/big-file/pool',
+            name: 'big-file-pool',
+            component: BigFilePool
           },
 
           {
