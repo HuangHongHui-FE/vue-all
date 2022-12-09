@@ -11,7 +11,8 @@
 
 <style lang="less">
 #app {
-  @hhh: red;
+  // 为了换肤，需要统一设置字体color
+  color: @black2;
 }
 </style>
 
