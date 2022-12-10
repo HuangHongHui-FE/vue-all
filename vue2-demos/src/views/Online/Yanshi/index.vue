@@ -2,7 +2,7 @@
   <div class="content">
     <section class="left">
       <a-menu
-        :default-selected-keys="['1-1']"
+        :default-selected-keys="defaultSelect"
         :open-keys.sync="openKeys"
         mode="inline"
       >
@@ -29,6 +29,22 @@
 import { head_mid_urls, gitee_url } from "../../../config/url";
 export default {
   name: "yan_shi",
+
+  // 修复左边默认选中, 默认展开, 会触发一次updated
+  beforeRouteEnter(to, from, next) {
+    console.log(to, from);
+    next((vm) => {
+      const left = vm.pageData.left_data;
+      for (let i = 0; i < left.length; i++) {
+        for (let j = 0; j < left[i].demos.length; j++) {
+          if (left[i].demos[j].path.substr(2) === to.path.substr(7)) {
+            vm.defaultSelect.splice(0, 1, left[i].demos[j].id);
+            vm.openKeys.splice(0, 1, left[i].pid);
+          }
+        }
+      }
+    });
+  },
   data() {
     this.pageData = {
       urls: head_mid_urls,
@@ -63,7 +79,7 @@ export default {
               id: "2-2",
               path: "../big-file/pool",
               name: "pool",
-            }
+            },
           ],
         },
         {
@@ -81,8 +97,10 @@ export default {
     };
     return {
       openKeys: ["1"],
+      // 默认选中的·侧边栏
+      defaultSelect: ["1-1"],
     };
-  },
+  }
 };
 </script>
 
