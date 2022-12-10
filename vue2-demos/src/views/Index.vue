@@ -117,12 +117,12 @@ export default {
   display: flex;
   flex-direction: column;
   .head {
-    padding: 0 4vw;
-    font-size: 17px;
+    padding: 0 30px;
+    font-size: 17px / 2;
     color: @primaryWhite1;
     background-color: @primaryBlack1;
     display: flex;
-    height: 8vh;
+    height: 30px;
     &_left {
       &:hover {
         color: @primaryBlue1;
@@ -131,28 +131,28 @@ export default {
           animation-fill-mode: forwards;
         }
       }
-      line-height: 8vh;
+      line-height: 30px;
       cursor: pointer;
       flex: 2;
       display: flex;
       align-items: center;
-      font-size: 18px;
+      font-size: 18px / 2;
       font-weight: 700;
       img {
-        width: 6vh;
-        height: 6vh;
+        width: 22.5px;
+        height: 22.5px;
         border-radius: 50%;
       }
       div {
-        padding-left: 1vh;
-        line-height: 6vh;
+        padding-left: 3px;
+        line-height: 22.5px;
       }
     }
     &_middle {
       flex: 5;
       display: flex;
       justify-content: space-around;
-      line-height: 8vh;
+      line-height: 30px;
 
       // active路由
       .active {
@@ -175,8 +175,8 @@ export default {
           left: 50%;
           content: "";
           transform: translateX(-50%);
-          width: 70px;
-          height: 4px;
+          width: 35px;
+          height: 2px;
         }
       }
       > nav {
@@ -195,7 +195,7 @@ export default {
       div {
         flex: 1;
         > i {
-          font-size: 26px;
+          font-size: 13px;
         }
         &:hover {
           color: @primaryBlue1;
@@ -210,7 +210,7 @@ export default {
   }
 
   .footer {
-    padding: 0 4vw;
+    padding: 0 30px;
 
     background-color: rgb(225, 141, 39);
   }
@@ -228,12 +228,12 @@ export default {
 // 更改antd的默认样式
 :global(.ant-input) {
   background-color: @white2 !important;
-  height: 36px !important;
-  border-radius: 10px !important;
+  height: 18px !important;
+  border-radius: 5px !important;
   font-weight: 700;
 }
 :global(.ant-input:hover) {
-  border: 3px solid @primaryBlue1 !important;
+  border: 1.5px solid @primaryBlue1 !important;
   background-color: @primaryWhite1 !important;
 }
 </style>>

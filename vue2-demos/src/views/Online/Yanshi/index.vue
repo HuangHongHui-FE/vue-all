@@ -90,29 +90,29 @@ export default {
 <style scoped lang="less">
 .content {
   display: flex;
-  padding: 0 4vw;
-  min-height: 92vh;
+  padding: 0 30px;
+  min-height: 345px;
   background-color: @white1;
-  height: 92px;
+  height: 46px;
   position: relative;
   .left {
     flex: 2;
     overflow-y: scroll;
     overflow-x: hidden;
     &::-webkit-scrollbar {
-      width: 6px;
+      width: 3px;
       background-color: @white2;
     }
     &::-webkit-scrollbar-thumb {
       background: @black2;
-      border-radius: 10px;
+      border-radius: 5px;
     }
   }
 
   .middle {
     // background-color: yellow;
     flex: 6;
-    padding: 30px;
+    padding: 15px;
   }
 
   .right {
@@ -123,26 +123,26 @@ export default {
 
 :global(.ant-menu) {
   border: 0 !important;
-  padding-right: 2vw !important;
+  padding-right: 15px !important;
   background-color: @white1 !important;
-  width: 18vw !important;
+  width: 135px !important;
 }
 :global(.ant-menu-submenu-title span) {
-  font-size: 18px;
+  font-size: 9px;
   font-weight: 800;
 }
 
 :global(.ant-menu-submenu-title) {
-  height: 4vh !important;
-  line-height: 4vh !important;
+  height: 15px !important;
+  line-height: 15px !important;
   color: @black2 !important;
 }
 
 :global(.ant-menu-item) {
-  height: 4vh !important;
-  line-height: 4vh !important;
-  border-radius: 5px;
-  left: 1vw;
+  height: 15px !important;
+  line-height: 15px !important;
+  border-radius: 2.5px;
+  left: 7.5px;
 }
 
 :global(.ant-menu-item a) {
@@ -162,7 +162,7 @@ export default {
   left: -1px;
   top: 0;
   bottom: 0;
-  border: 4px solid @primaryBlue1;
+  border: 2px solid @primaryBlue1;
   content: "";
 }
 :global(.ant-menu-item-selected::after) {
