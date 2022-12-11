@@ -14,6 +14,15 @@
   // 为了换肤，需要统一设置字体color
   color: @black2;
 }
+
+// 滤镜效果
+html {
+    // -webkit-filter: grayscale(100%);
+    // -moz-filter: grayscale(100%);
+    // -ms-filter: grayscale(100%);
+    // -o-filter: grayscale(100%);
+    // filter: grayscale(100%);
+}
 </style>
 
 
