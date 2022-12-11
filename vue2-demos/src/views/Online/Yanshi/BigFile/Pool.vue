@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <input type="file" id="fileInput" @change="chooseFile" />
-    <a-Button id="uploadBtn" @click="uploadFile">上传</a-Button>
+    <a-Button @click="uploadFile">上传</a-Button>
+    <a-Button @click="uploadErrFile">断点续传</a-Button>
     <!-- 显示所有切片的图 -->
     <div class="chunks">
       <div :class="item" v-for="(item, index) in chunks" :key="index"></div>
@@ -17,7 +18,11 @@ export default {
   data() {
     this.pageData = {
       file: "",
+      // 切片结果
       fileChunks: [],
+      formData: "",
+      // 上传失败的块
+      errUploadRes: []
     };
     return {
       chunks: [],
@@ -68,13 +73,17 @@ export default {
       }
     },
 
+    // 断点续传
+    uploadErrFile() {},
+
     // 切片生成formData, 这里可以优化，只有一个formData实例
     chunkToForm(file, chunk) {
-      const formData = new FormData();
-      formData.append("filename", file.name);
-      formData.append("hash", chunk.hash);
-      formData.append("chunk", chunk.chunk);
-      return formData;
+      if (!this.pageData.formData) {
+        this.pageData.formData = new FormData();
+      }
+      this.pageData.formData.set("filename", file.name);
+      this.pageData.formData.set("hash", chunk.hash);
+      this.pageData.formData.set("chunk", chunk.chunk);
     },
 
     // 异步控制并发数
@@ -93,15 +102,18 @@ export default {
           const task = tasks.shift();
 
           if (task) {
-            const formData = that.chunkToForm(that.pageData.file, task);
-            bigFileUpload(formData)
+            that.chunkToForm(that.pageData.file, task);
+            bigFileUpload(that.pageData.formData)
               .then((res) => {
+                // 控制方格样式
                 that.chunks.splice(count, 1, "successChunk");
                 result.push(res);
               })
               .catch((err) => {
                 that.chunks.splice(count, 1, "errChunk");
                 result.push(err);
+                that.pageData.errUploadRes.push(tasks[count]);
+                console.log(that.pageData.errUploadRes);
               })
               .finally(() => {
                 if (count === len - 1) {
@@ -126,7 +138,7 @@ export default {
 <style scoped lang="less">
 .container {
   .chunks {
-    width: 500px;
+    width: 250px;
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;

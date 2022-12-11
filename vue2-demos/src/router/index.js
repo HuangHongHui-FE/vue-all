@@ -9,6 +9,7 @@ import FiveStarsUI from '../views/Online/Yanshi/Com/FiveStarsUI'
 import BigFileBasic from '../views/Online/Yanshi/BigFile/Basic'
 import BigFilePool from '../views/Online/Yanshi/BigFile/Pool'
 import ErerElevenCookie from '../views/Online/Yanshi/Erer-eleven/Cookie'
+import ErerElevenLinkClick from '../views/Online/Yanshi/Erer-eleven/LinkClick'
 Vue.use(VueRouter)
 
 // 配置两套路由online与h5
@@ -76,6 +77,11 @@ const routes_online = [
             path: '/yanshi/erer-eleven/cookie',
             name: 'erer-eleven-cookie',
             component: ErerElevenCookie
+          },
+          {
+            path: '/yanshi/erer-eleven/link-click',
+            name: 'erer-eleven-link-click',
+            component: ErerElevenLinkClick
           },
         ]
       },

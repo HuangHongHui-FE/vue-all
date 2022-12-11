@@ -109,7 +109,11 @@ https://wubin.work/blog/articles/238
 
 ### 移动端单位布局适配
 
-postcss-px-to-viewport
+##### postcss-px-to-viewport
+
+原理： px转vw
+
+
 
 1500px  --   
 
@@ -125,9 +129,29 @@ postcss-px-to-viewport
 
 https://blog.csdn.net/hh3167253066/article/details/120338857?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167065304516800192259957%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=167065304516800192259957&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-120338857-null-null.nonecase&utm_term=postcss&spm=1018.2226.3001.4450
 
+##### lib-flexible + postcss-px2rem postcss-loader
+
+原理：px转rem
+
+https://tiven.cn/p/b1ab6b72/
 
 
 
+
+
+
+
+
+
+webpack配置：
+
+https://segmentfault.com/a/1190000038447000
+
+https://www.cnblogs.com/ypSharing/p/vue-webpack.html
+
+vue cli配置：
+
+https://cli.vuejs.org/zh/config/
 
 ### 优化点：
 

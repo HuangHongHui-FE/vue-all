@@ -91,6 +91,11 @@ export default {
               path: "../erer-eleven/cookie",
               name: "cookie",
             },
+            {
+              id: "10-2",
+              path: "../erer-eleven/link-click",
+              name: "linkClick",
+            },
           ],
         },
       ],
