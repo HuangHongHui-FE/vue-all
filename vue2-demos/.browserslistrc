@@ -1,3 +1,4 @@
-> 1%
-last 2 versions
-not dead
+> 1%  # 代表着全球超过1%人使用的浏览器
+last 2 versions  # 最后的两个版本
+not ie < 11  # 表示IE浏览器版本不小于11
+# not dead # 这个 query 中 not 是逻辑非操作符，即对 dead取反，而浏览器被认为是 dead 条件是：最新的两个版本中发现其市场份额已经低于 0.5% 并且 24 个月内没有任务官方支持和更新了。
