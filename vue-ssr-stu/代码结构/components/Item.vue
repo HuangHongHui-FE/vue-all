@@ -3,7 +3,13 @@
 </template>
 
 <script>
+import titleMixin from '../mixin/title-mixin'
 export default {
+
+  mixins: [titleMixin],
+  title () {
+    return this.item.title
+  },
     // 此函数会在组件实例化之前调用，所以它无法访问 this
   asyncData({ store, route }) {
     // 触发 action 后，会返回 Promise
