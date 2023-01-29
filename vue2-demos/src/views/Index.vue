@@ -1,6 +1,9 @@
 <template>
   <div class="Index">
     <header class="head">
+      <div class="duohang">
+        <i class="iconfont icon--duohangwenben"></i>
+      </div>
       <div class="head_left">
         <img src="../assets/img/index-head.webp" alt="头像" />
         <div>HHH的demos</div>
@@ -35,6 +38,12 @@
           </a-input>
         </div>
       </div>
+
+      <div class="head_right_m">
+        <a-input>
+          <i slot="prefix" class="iconfont icon-sousuo"></i>
+        </a-input>
+      </div>
     </header>
 
     <section class="content">
@@ -57,7 +66,7 @@ export default {
   data() {
     this.pageData = {
       urls: head_mid_urls,
-      gitee_url
+      gitee_url,
     };
     return {
       theme: "default",
@@ -113,127 +122,211 @@ export default {
 
 
 <style scoped lang="less">
-.Index {
-  display: flex;
-  flex-direction: column;
-  .head {
-    padding: 0 30px;
-    font-size: 17px / 2;
-    color: @primaryWhite1;
-    background-color: @primaryBlack1;
+@media screen and (min-width: 1000px) {
+  .Index {
     display: flex;
-    height: 30px;
-    &_left {
-      &:hover {
-        color: @primaryBlue1;
+    flex-direction: column;
+    .head {
+      padding: 0 30px;
+      font-size: 17px / 2;
+      color: @primaryWhite1;
+      background-color: @primaryBlack1;
+      display: flex;
+      height: 30px;
+      .duohang{
+        display: none;
+      }
+      &_left {
+        &:hover {
+          color: @primaryBlue1;
+          img {
+            animation: imgCyc 600ms ease;
+            animation-fill-mode: forwards;
+          }
+        }
+        line-height: 30px;
+        cursor: pointer;
+        flex: 2;
+        display: flex;
+        align-items: center;
+        font-size: 18px / 2;
+        font-weight: 700;
         img {
-          animation: imgCyc 600ms ease;
-          animation-fill-mode: forwards;
+          width: 22.5px;
+          height: 22.5px;
+          border-radius: 50%;
+        }
+        div {
+          padding-left: 3px;
+          line-height: 22.5px;
         }
       }
-      line-height: 30px;
-      cursor: pointer;
-      flex: 2;
-      display: flex;
-      align-items: center;
-      font-size: 18px / 2;
-      font-weight: 700;
-      img {
-        width: 22.5px;
-        height: 22.5px;
-        border-radius: 50%;
-      }
-      div {
-        padding-left: 3px;
-        line-height: 22.5px;
-      }
-    }
-    &_middle {
-      flex: 5;
-      display: flex;
-      justify-content: space-around;
-      line-height: 30px;
+      &_middle {
+        flex: 5;
+        display: flex;
+        justify-content: space-around;
+        line-height: 30px;
 
-      // active路由
-      .active {
-        color: @primaryBlue1;
-        &::after {
-          background-color: @primaryBlue1;
+        // active路由
+        .active {
+          color: @primaryBlue1;
+          &::after {
+            background-color: @primaryBlue1;
+          }
+        }
+        > a {
+          &:hover {
+            color: @primaryBlue1;
+          }
+          color: @primaryWhite1;
+          cursor: pointer;
+          position: relative;
+          &::after {
+            position: absolute;
+            text-align: center;
+            bottom: 0;
+            left: 50%;
+            content: "";
+            transform: translateX(-50%);
+            width: 35px;
+            height: 2px;
+          }
+        }
+        > nav {
+          cursor: pointer;
+          color: @primaryWhite1;
+          &:hover {
+            color: @primaryBlue1;
+          }
         }
       }
-      > a {
-        &:hover {
-          color: @primaryBlue1;
-        }
-        color: @primaryWhite1;
+      &_right {
+        flex: 2;
+        display: flex;
+        align-items: center;
         cursor: pointer;
-        position: relative;
-        &::after {
-          position: absolute;
-          text-align: center;
-          bottom: 0;
-          left: 50%;
-          content: "";
-          transform: translateX(-50%);
-          width: 35px;
-          height: 2px;
+        div {
+          flex: 1;
+          > i {
+            font-size: 13px;
+          }
+          &:hover {
+            color: @primaryBlue1;
+          }
+        }
+        div:nth-last-child(1) {
+          flex: 3;
+        }
+        &_input {
         }
       }
-      > nav {
-        cursor: pointer;
-        color: @primaryWhite1;
-        &:hover {
-          color: @primaryBlue1;
-        }
+
+      &_right_m {
+        display: none;
       }
     }
-    &_right {
-      flex: 2;
+  }
+
+  // 更改antd的默认样式
+  :global(.ant-input) {
+    background-color: @white2 !important;
+    height: 18px !important;
+    border-radius: 5px !important;
+    font-weight: 700;
+  }
+  :global(.ant-input:hover) {
+    border: 1.5px solid @primaryBlue1 !important;
+    background-color: @primaryWhite1 !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Index {
+    .head {
       display: flex;
-      align-items: center;
-      cursor: pointer;
-      div {
+      justify-content: space-between;
+      padding: 0 30px;
+      font-size: 51px / 2;
+      color: @primaryWhite1;
+      background-color: @primaryBlack1;
+      height: 90px;
+      .duohang{
+        line-height: 90px;
         flex: 1;
-        > i {
-          font-size: 13px;
+        cursor: pointer;
+        i{
+          font-size: 40px;
         }
         &:hover {
           color: @primaryBlue1;
         }
       }
-      div:nth-last-child(1) {
-        flex: 3;
+      &_left {
+        &:hover {
+          color: @primaryBlue1;
+          img {
+            animation: imgCyc 600ms ease;
+            animation-fill-mode: forwards;
+          }
+        }
+        line-height: 90px;
+        cursor: pointer;
+        flex: 10;
+        display: flex;
+        align-items: center;
+        font-size: 54px / 2;
+        font-weight: 700;
+        img {
+          width: 68px;
+          height: 68px;
+          border-radius: 50%;
+        }
+        div {
+          padding-left: 3px;
+          line-height: 68px;
+        }
       }
-      &_input {
+
+      &_middle {
+        display: none;
+      }
+
+      &_right {
+        display: none;
+      }
+
+      &_right_m {
+        flex: 1;
+        // width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }
 
-  .footer {
-    padding: 0 30px;
-
-    background-color: rgb(225, 141, 39);
+  // 更改antd的默认样式
+  :global(.ant-input) {
+    background-color: @white2 !important;
+    height: 54px !important;
+    border-radius: 15px !important;
+    font-weight: 700;
   }
-
-  @keyframes imgCyc {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  :global(.ant-input:hover) {
+    border: 1.5px solid @primaryBlue1 !important;
+    background-color: @primaryWhite1 !important;
   }
 }
-
-// 更改antd的默认样式
-:global(.ant-input) {
-  background-color: @white2 !important;
-  height: 18px !important;
-  border-radius: 5px !important;
-  font-weight: 700;
+.footer {
+  padding: 0 30px;
+  background-color: rgb(225, 141, 39);
 }
-:global(.ant-input:hover) {
-  border: 1.5px solid @primaryBlue1 !important;
-  background-color: @primaryWhite1 !important;
+@keyframes imgCyc {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>>

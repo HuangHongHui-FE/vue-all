@@ -153,6 +153,12 @@ vue cli配置：
 
 https://cli.vuejs.org/zh/config/
 
+优化chunk体积的， 提取出公共代码
+
+https://tiven.cn/p/edae9a97/
+
+
+
 ### 优化点：
 
 - ##### 不需要双向绑定的数据：

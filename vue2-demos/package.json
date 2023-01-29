@@ -12,6 +12,7 @@
     "axios": "^1.2.0",
     "babel-plugin-import": "^1.13.5",
     "core-js": "^3.8.3",
+    "fastclick": "^1.0.6",
     "moment": "^2.29.4",
     "nprogress": "^0.2.0",
     "vue": "^2.6.14",

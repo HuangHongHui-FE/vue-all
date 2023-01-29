@@ -1,5 +1,5 @@
 // 处理点击事件延迟与初始化东西
-import FastClick from "./fastclick";
+import FastClick from "fastclick";
 
 // 设置html上的字体大小，以便使用rem
 document.documentElement.style.fontSize =

@@ -116,10 +116,10 @@ const routes_h5 = [
   }
 ]
 
-let routes = routes_online;
-if (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
-  routes = routes_h5
-}
+const routes = routes_online;
+// if (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
+//   routes = routes_h5
+// }
 
 const router = new VueRouter({
   linkActiveClass: 'active',

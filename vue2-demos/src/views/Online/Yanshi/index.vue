@@ -105,45 +105,78 @@ export default {
       // 默认选中的·侧边栏
       defaultSelect: ["1-1"],
     };
-  }
+  },
 };
 </script>
 
 
 <style scoped lang="less">
-.content {
-  display: flex;
-  padding: 0 30px;
-  min-height: 345px;
-  background-color: @white1;
-  height: 46px;
-  position: relative;
-  .left {
-    flex: 2;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    &::-webkit-scrollbar {
-      width: 3px;
-      background-color: @white2;
+@media screen and (min-width: 1000px) {
+  .content {
+    display: flex;
+    padding: 0 30px;
+    min-height: 345px;
+    background-color: @white1;
+    height: 46px;
+    position: relative;
+    .left {
+      flex: 2;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      &::-webkit-scrollbar {
+        width: 3px;
+        background-color: @white2;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: @black2;
+        border-radius: 5px;
+      }
     }
-    &::-webkit-scrollbar-thumb {
-      background: @black2;
-      border-radius: 5px;
+
+    .middle {
+      flex: 6;
+      padding: 15px;
     }
-  }
 
-  .middle {
-    // background-color: yellow;
-    flex: 6;
-    padding: 15px;
-  }
-
-  .right {
-    // background-color: blue;
-    flex: 2;
+    .right {
+      flex: 2;
+    }
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .content {
+    display: none;
+    padding: 0 30px;
+    min-height: 345px;
+    background-color: @white1;
+    height: 46px;
+    position: relative;
+    .left {
+      flex: 2;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      &::-webkit-scrollbar {
+        width: 3px;
+        background-color: @white2;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: @black2;
+        border-radius: 5px;
+      }
+    }
+
+    .middle {
+      display: none;
+    }
+
+    .right {
+      display: none;
+    }
+  }
+}
+
+// 自定义组件样式
 :global(.ant-menu) {
   border: 0 !important;
   padding-right: 15px !important;
