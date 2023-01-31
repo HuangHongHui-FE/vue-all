@@ -6,6 +6,9 @@ const createApp = require('./03-app')
 const template = require('fs').readFileSync('./index.template.html', 'utf-8');
 // console.log(template);
 const renderer = require('vue-server-renderer').createRenderer({
+
+    // 传入 BundleRenderer
+    runInNewContext: false, // 推荐
     template,
 });
 
