@@ -11,6 +11,7 @@ import BigFilePool from '../views/Online/Yanshi/BigFile/Pool'
 import ErerElevenCookie from '../views/Online/Yanshi/Erer-eleven/Cookie'
 import ErerElevenLinkClick from '../views/Online/Yanshi/Erer-eleven/LinkClick'
 import ErthreeTwoIframe1 from '../views/Online/Yanshi/Erthree-two/Iframe1'
+import ErthreeTwoJwt1 from '../views/Online/Yanshi/Erthree-two/Jwt1'
 Vue.use(VueRouter)
 
 // 配置两套路由online与h5
@@ -97,6 +98,11 @@ const routes_online = [
             name: 'erthree-two-iframe1',
             component: ErthreeTwoIframe1
           },
+          {
+            path: '/yanshi/erthree-two/jwt1',
+            name: 'erthree-two-jwt1',
+            component: ErthreeTwoJwt1
+          }
         ]
       },
       {

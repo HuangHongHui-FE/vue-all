@@ -106,6 +106,11 @@ export default {
               id: "4-1",
               path: "../erthree-two/iframe1",
               name: "iframe1",
+            },
+            {
+              id: "4-2",
+              path: "../erthree-two/jwt1",
+              name: "jwt1",
             }
           ],
         }
