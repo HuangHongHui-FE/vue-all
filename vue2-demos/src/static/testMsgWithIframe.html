@@ -1,0 +1,27 @@
+<!-- 这里的static文件夹需要放到public下 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <button onclick="invockIframeMethod()">点击调用iframe</button>
+    <script>
+        function invockIframeMethod() {
+            // 是用widow调用vue绑定的vueDefinedMyProp方法
+            window.parent['vueDefinedMyProp']('you are Superman!');
+        }
+        function lodaTable() {
+            let num = 10;
+            while (num > 0) {
+                console.log(`number : ${num}`);
+                num--;
+            }
+        }
+    </script>
+</body>
+
+</html>

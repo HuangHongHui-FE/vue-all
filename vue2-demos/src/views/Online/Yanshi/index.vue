@@ -32,7 +32,7 @@ export default {
 
   // 修复左边默认选中, 默认展开, 会触发一次updated
   beforeRouteEnter(to, from, next) {
-    console.log(to, from);
+    // console.log(to, from);
     next((vm) => {
       const left = vm.pageData.left_data;
       for (let i = 0; i < left.length; i++) {
@@ -84,20 +84,31 @@ export default {
         },
         {
           title: "2022-11",
-          pid: "999",
+          pid: "3",
           demos: [
             {
-              id: "10-1",
+              id: "3-1",
               path: "../erer-eleven/cookie",
               name: "cookie",
             },
             {
-              id: "10-2",
+              id: "3-2",
               path: "../erer-eleven/link-click",
               name: "linkClick",
             },
           ],
         },
+        {
+          title: "2023-02",
+          pid: "4",
+          demos: [
+            {
+              id: "4-1",
+              path: "../erthree-two/iframe1",
+              name: "iframe1",
+            }
+          ],
+        }
       ],
     };
     return {

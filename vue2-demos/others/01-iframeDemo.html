@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="invokeHtmlMethod()">调用html种方法</button>
+    <div class="iframestyleset">
+        <iframe name="iframeMap" id="iframeMapViewComponent" src="./01.html" width="100%" height="100%"
+            frameborder="0" scrolling="no" ref="iframeDom"></iframe>
+    </div>
+
+    <script>
+        // 初始化时为window绑定一个方法
+        window.vueDefinedMyProp = (receiveParams) => {
+            window.receiveParamsFromHtml(receiveParams);
+        };
+
+        function receiveParamsFromHtml(res) {
+            console.log(res);
+        }
+        function invokeHtmlMethod() {
+            window.frames["iframeMap"].lodaTable();
+        }
+    </script>
+</body>
+
+</html>

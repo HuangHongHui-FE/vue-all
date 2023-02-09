@@ -45,4 +45,6 @@ vue的服务端渲染相关
 
 - vue3组件通信：https://tiven.cn/p/97da9e37/
 
+- 支付demo1： https://zhuanlan.zhihu.com/p/369980440
+
   

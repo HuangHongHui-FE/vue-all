@@ -22,6 +22,7 @@ module.exports = {
     'no-trailing-spaces': 0,
     'no-unused-vars': 0,
     'camelcase': 0,
-    'space-before-function-paren': 0
+    'space-before-function-paren': 0,
+    'dot-notation': 0
   }
 }
