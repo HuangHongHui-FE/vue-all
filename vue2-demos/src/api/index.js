@@ -10,7 +10,7 @@ export const ererElevenCookieLogin = () => requests({ url: '/ererEleven/cookie/l
 export const ererElevenCookieUser = () => requests({ url: '/ererEleven/cookie/user', method: "get" });
 
 export const erthreeTwoJwt1Sign = (params) => requests({ url: '/erthreeTwo/jwt/sign', method: "post", data: params })
-export const erthreeTwoJwt1Check = () => { requests({ url: '/erthreeTwo/jwt/check', method: "get" }) }
+export const erthreeTwoJwt1Check = () => requests({ url: '/erthreeTwo/jwt/check', method: "get" })
 
 // 当前这个接口（获取搜索模块的数据），给服务器传递一个默认参数【至少是一个空对象】
 export const reqGetSearchInfo = (params) => requests({ url: "/list", method: "post", data: params });
